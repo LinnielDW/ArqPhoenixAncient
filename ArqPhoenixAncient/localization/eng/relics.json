@@ -4,7 +4,7 @@
   "ARQPHOENIXANCIENT-PHOENIX_HEART.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_TALON.title": "Talons of the Phoenix",
-  "ARQPHOENIXANCIENT-PHOENIX_TALON.description": "When you play an Attack, lose [red]{HpLoss}[/red] HP and gain [green]{StrengthPower}[/green] Strength.",
+  "ARQPHOENIXANCIENT-PHOENIX_TALON.description": "When you play an Attack, lose [red]{HpLoss}[/red] HP and gain [green]{StrengthPower}[/green] [gold]Strength[/gold].",
   "ARQPHOENIXANCIENT-PHOENIX_TALON.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_FEATHER.title": "Flight of the Phoenix",
@@ -17,7 +17,7 @@
   "ARQPHOENIXANCIENT-PHOENIX_WRATH.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_PRIDE.title": "Phoenix's Pride",
-  "ARQPHOENIXANCIENT-PHOENIX_PRIDE.description": "",
+  "ARQPHOENIXANCIENT-PHOENIX_PRIDE.description": "Gain {Energy:energyIcons()} at the start of each turn. At the start of each turn, lose [red]{HpLoss}[/red] HP.",
   "ARQPHOENIXANCIENT-PHOENIX_PRIDE.flavor": "",
   
   "ARQPHOENIXANCIENT-PHOENIX_GREED.title": "Phoenix's Greed",
