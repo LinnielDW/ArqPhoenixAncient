@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 namespace ArqPhoenixAncient.Relics;
 
 //TODO: IMPL
+// - The first time you lose health on your turn gain 1 energy. 
 [Pool(typeof(EventRelicPool))]
 public class PhoenixWrath() : CustomRelicModel
 {

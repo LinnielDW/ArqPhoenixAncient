@@ -6,10 +6,13 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 namespace ArqPhoenixAncient.Relics;
 
 //TODO: IMPL
-// - Gain 1 extra energy per turn but at the start of your turn take 2 unavoidable damage
+// - At the start of your turn all enemies take 1 damage. This damage increases by 1 every turn. 
+
 [Pool(typeof(EventRelicPool))]
-public class PhoenixPride() : CustomRelicModel
+public class PhoenixPyre() : CustomRelicModel
 {
     public override RelicRarity Rarity =>
         RelicRarity.Ancient;
+
+    
 }
