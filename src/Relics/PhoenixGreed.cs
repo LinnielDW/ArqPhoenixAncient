@@ -39,7 +39,7 @@ public class PhoenixGreed : CustomRelicModel
     
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
     {
-        if (player == Owner)
+        if (player == Owner && combatState.RoundNumber % 2 == 1)
         {
             Flash();
             var burnCard = combatState.CreateCard<Burn>(Owner);
