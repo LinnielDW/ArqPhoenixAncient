@@ -13,7 +13,7 @@
 
   
   "ARQPHOENIXANCIENT-PHOENIX_WRATH.title": "Phoenix's Wrath",
-  "ARQPHOENIXANCIENT-PHOENIX_WRATH.description": "",
+  "ARQPHOENIXANCIENT-PHOENIX_WRATH.description": "The first time you lose HP on your turn, gain {Energy:energyIcons()}.",
   "ARQPHOENIXANCIENT-PHOENIX_WRATH.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_PRIDE.title": "Phoenix's Pride",
