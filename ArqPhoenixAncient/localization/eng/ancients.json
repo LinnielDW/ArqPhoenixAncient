@@ -1,0 +1,107 @@
+﻿{
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.title": "Phoenix",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.epithet": "Burning Avatar",
+  
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.0-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.0-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.0-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.0-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.0-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.1-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.1-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.1-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.1-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.1-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.2-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.2-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.2-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.2-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.DEFECT.2-2r.ancient": "Put ancient response here",
+
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.0-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.0-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.0-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.0-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.0-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.1-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.1-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.1-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.1-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.1-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.2-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.2-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.2-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.2-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.IRONCLAD.2-2r.ancient": "Put ancient response here",
+
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.0-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.0-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.0-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.0-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.0-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.1-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.1-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.1-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.1-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.1-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.2-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.2-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.2-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.2-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.SILENT.2-2r.ancient": "Put ancient response here",
+
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.0-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.0-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.0-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.0-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.0-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.1-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.1-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.1-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.1-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.1-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.2-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.2-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.2-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.2-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.REGENT.2-2r.ancient": "Put ancient response here",
+
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.0-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.0-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.0-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.0-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.0-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.1-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.1-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.1-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.1-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.1-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.2-0r.ancient": "Put salutation here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.2-0r.next": "Put action here. eg. Listen",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.2-1r.char": "Put character response here",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.2-1r.next": "Continue",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.NECROBINDER.2-2r.ancient": "Put ancient response here",
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.ANY.0-0r.ancient": "Approach. Receive blessing. [red]Burn bright.[/red]",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.ANY.1-0r.ancient": "Stoke flames. Provide life. [red]Receive potency.[/red]",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.ANY.2-0r.ancient": "[font_size=42][red]Perform conflagration.[/red][/font_size]",
+
+
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.firstVisitEver.0-0.ancient": "A puppet. So meek. [red]Embrace power.[/red]",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.ANY.1-0r.next": "Next",
+  "ARQPHOENIXANCIENT-PHOENIX_ANCIENT.talk.ANY.1-1r.char": "..."
+}

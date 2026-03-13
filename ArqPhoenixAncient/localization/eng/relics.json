@@ -1,0 +1,29 @@
+﻿{
+  "ARQPHOENIXANCIENT-PHOENIX_HEART.title": "Heart of the Phoenix",
+  "ARQPHOENIXANCIENT-PHOENIX_HEART.description": "The first time you play a Power each turn, gain [green]{RegenPower}[/green] [gold]Regen[/gold].",
+  "ARQPHOENIXANCIENT-PHOENIX_HEART.flavor": "",
+
+  "ARQPHOENIXANCIENT-PHOENIX_TALON.title": "PhoenixTalon",
+  "ARQPHOENIXANCIENT-PHOENIX_TALON.description": "When you play an Attack, lose [red]{HpLoss}[/red] HP and gain [green]{StrengthPower}[/green] Strength.",
+  "ARQPHOENIXANCIENT-PHOENIX_TALON.flavor": "",
+
+  "ARQPHOENIXANCIENT-PHOENIX_FEATHER.title": "PhoenixFeather",
+  "ARQPHOENIXANCIENT-PHOENIX_FEATHER.description": "Skills cost [blue]{Energy}[/blue] less {energyPrefix:energyIcons(1)}. Whenever you play a Skill, lose [red]{HpLoss}[/red] HP.",
+  "ARQPHOENIXANCIENT-PHOENIX_FEATHER.flavor": "",
+
+  "ARQPHOENIXANCIENT-PHOENIX_WRATH.title": "PhoenixWrath",
+  "ARQPHOENIXANCIENT-PHOENIX_WRATH.description": "",
+  "ARQPHOENIXANCIENT-PHOENIX_WRATH.flavor": "",
+
+  "ARQPHOENIXANCIENT-PHOENIX_PRIDE.title": "PhoenixPride",
+  "ARQPHOENIXANCIENT-PHOENIX_PRIDE.description": "",
+  "ARQPHOENIXANCIENT-PHOENIX_PRIDE.flavor": "",
+  
+  "ARQPHOENIXANCIENT-PHOENIX_GREED.title": "PhoenixGreed",
+  "ARQPHOENIXANCIENT-PHOENIX_GREED.description": "",
+  "ARQPHOENIXANCIENT-PHOENIX_GREED.flavor": "",
+
+  "ARQPHOENIXANCIENT-PHOENIX_GROWTH.title": "Brazier of Rebirth",
+  "ARQPHOENIXANCIENT-PHOENIX_GROWTH.description": "The first time you would die in combat, heal to [green]{Heal}[/green] HP instead.",
+  "ARQPHOENIXANCIENT-PHOENIX_GROWTH.flavor": ""
+}
