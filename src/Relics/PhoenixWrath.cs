@@ -10,6 +10,5 @@ namespace ArqPhoenixAncient.Relics;
 [Pool(typeof(EventRelicPool))]
 public class PhoenixWrath() : CustomRelicModel
 {
-    public override RelicRarity Rarity =>
-        RelicRarity.Ancient;
+    public override RelicRarity Rarity => RelicRarity.Ancient;
 }

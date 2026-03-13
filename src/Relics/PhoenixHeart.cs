@@ -16,8 +16,7 @@ namespace ArqPhoenixAncient.Relics;
 [Pool(typeof(EventRelicPool))]
 public class PhoenixHeart() : CustomRelicModel
 {
-    public override RelicRarity Rarity =>
-        RelicRarity.Ancient;
+    public override RelicRarity Rarity => RelicRarity.Ancient;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar> {new PowerVar<RegenPower>(2)};
 

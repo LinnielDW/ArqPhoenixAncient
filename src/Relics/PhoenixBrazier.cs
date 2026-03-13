@@ -13,8 +13,7 @@ namespace ArqPhoenixAncient.Relics;
 [Pool(typeof(EventRelicPool))]
 public class PhoenixBrazier() : CustomRelicModel
 {
-    public override RelicRarity Rarity =>
-        RelicRarity.Ancient;
+    public override RelicRarity Rarity => RelicRarity.Ancient;
 
     private bool _usedThisCombat;
 

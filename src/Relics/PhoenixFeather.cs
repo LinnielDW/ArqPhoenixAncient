@@ -15,8 +15,7 @@ namespace ArqPhoenixAncient.Relics;
 [Pool(typeof(EventRelicPool))]
 public class PhoenixFeather() : CustomRelicModel
 {
-    public override RelicRarity Rarity =>
-        RelicRarity.Ancient;
+    public override RelicRarity Rarity => RelicRarity.Ancient;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         new List<DynamicVar>([
