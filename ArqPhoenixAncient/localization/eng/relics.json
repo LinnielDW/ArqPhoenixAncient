@@ -4,7 +4,7 @@
   "ARQPHOENIXANCIENT-PHOENIX_HEART.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_TALON.title": "Talons of the Phoenix",
-  "ARQPHOENIXANCIENT-PHOENIX_TALON.description": "When you play an Attack, lose [red]{HpLoss}[/red] HP and gain [green]{StrengthPower}[/green] [gold]Strength[/gold].",
+  "ARQPHOENIXANCIENT-PHOENIX_TALON.description": "When you play an Attack, lose [red]{HpLoss}[/red] HP and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold].",
   "ARQPHOENIXANCIENT-PHOENIX_TALON.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_FEATHER.title": "Flight of the Phoenix",
@@ -30,7 +30,7 @@
   "ARQPHOENIXANCIENT-PHOENIX_BRAZIER.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_PYRE.title": "Ever-burning Pyre",
-  "ARQPHOENIXANCIENT-PHOENIX_PYRE.description": "",
+  "ARQPHOENIXANCIENT-PHOENIX_PYRE.description": "At the start of combat, gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] and [blue]{DexterityPower}[/blue] [gold]Strength[/gold]. At the start of each turn, lose [blue]{HpLoss}[/blue] Max HP.",
   "ARQPHOENIXANCIENT-PHOENIX_PYRE.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_TORCH.title": "Firestarter",
