@@ -14,7 +14,7 @@ namespace ArqPhoenixAncient.Relics;
 
 // Gain 1 extra energy per turn. At the start of your turn, shuffle a burn into your draw pile.
 [Pool(typeof(EventRelicPool))]
-public class PhoenixGreed() : CustomRelicModel
+public class PhoenixGreed : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 

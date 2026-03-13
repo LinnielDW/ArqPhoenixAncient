@@ -8,7 +8,7 @@ namespace ArqPhoenixAncient.Relics;
 //TODO: IMPL
 // add a card to deck. 
 [Pool(typeof(EventRelicPool))]
-public class PhoenixTorch() : CustomRelicModel
+public class PhoenixTorch : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 

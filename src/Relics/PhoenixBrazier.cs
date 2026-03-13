@@ -11,7 +11,7 @@ namespace ArqPhoenixAncient.Relics;
 
 //The first time you'd die during combat, resurrect on 1hp and gain 5 regen.
 [Pool(typeof(EventRelicPool))]
-public class PhoenixBrazier() : CustomRelicModel
+public class PhoenixBrazier : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 

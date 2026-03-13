@@ -14,7 +14,7 @@ namespace ArqPhoenixAncient.Relics;
 
 //Gain 1 regen when you play your first power each turn. 
 [Pool(typeof(EventRelicPool))]
-public class PhoenixHeart() : CustomRelicModel
+public class PhoenixHeart : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
     

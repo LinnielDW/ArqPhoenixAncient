@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace ArqPhoenixAncient.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class PhoenixTalon() : CustomRelicModel
+public class PhoenixTalon : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
     

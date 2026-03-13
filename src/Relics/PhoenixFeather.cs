@@ -13,7 +13,7 @@ namespace ArqPhoenixAncient.Relics;
 
 //Take unavoidable damage on skill use but skills cost one less
 [Pool(typeof(EventRelicPool))]
-public class PhoenixFeather() : CustomRelicModel
+public class PhoenixFeather : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
     
