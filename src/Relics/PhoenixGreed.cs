@@ -23,7 +23,8 @@ public class PhoenixGreed : CustomRelicModel
         get
         {
             return new List<DynamicVar>([
-                new EnergyVar(1)
+                new EnergyVar(1),
+                // new IntVar("Turn", 1)
             ]);
         }
     }
@@ -39,14 +40,17 @@ public class PhoenixGreed : CustomRelicModel
     
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
     {
-        if (player == Owner && combatState.RoundNumber % 2 == 1)
+        if (player == Owner)
         {
-            Flash();
-            var burnCard = combatState.CreateCard<Burn>(Owner);
+            // if (combatState.RoundNumber % 2 == 1)
+            {
+                Flash();
+                var burnCard = combatState.CreateCard<Burn>(Owner);
             
-            var readOnlyList = await CardPileCmd.AddGeneratedCardToCombat(burnCard, PileType.Draw, true, CardPilePosition.Random);
-            CardCmd.PreviewCardPileAdd(readOnlyList);
-            await Cmd.Wait(3f);
+                var readOnlyList = await CardPileCmd.AddGeneratedCardToCombat(burnCard, PileType.Draw, true, CardPilePosition.Random);
+                CardCmd.PreviewCardPileAdd(readOnlyList);
+                await Cmd.Wait(3f);
+            }
         }
     }
 }
