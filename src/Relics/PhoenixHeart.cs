@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
@@ -18,7 +19,10 @@ public class PhoenixHeart : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar> {new PowerVar<RegenPower>(2)};
+    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
+    {
+        new PowerVar<RegenPower>(3)
+    };
 
     private bool UsedThisTurn
     {
@@ -55,7 +59,20 @@ public class PhoenixHeart : CustomRelicModel
             if (cardPlay.Card.Type == CardType.Power)
             {
                 Flash();
+                
+                var burnCard = Owner.Creature.CombatState?.CreateCard<Burn>(Owner);
+                if (burnCard != null)
+                {
+                    await CardPileCmd.AddGeneratedCardToCombat(burnCard, PileType.Draw,
+                        true, CardPilePosition.Random);
+
+                    CardCmd.Preview(burnCard);
+                    await Cmd.Wait(1f);
+                }
+
+                
                 await PowerCmd.Apply<RegenPower>(Owner.Creature, DynamicVars["RegenPower"].BaseValue, Owner.Creature, null);
+                
             }
         }
     }
