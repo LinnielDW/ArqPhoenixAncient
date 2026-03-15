@@ -66,14 +66,14 @@ local_coords = true
 process_material = ExtResource("6_n6jer")
 
 [node name="Feathers_Right" type="GPUParticles2D" parent="."]
-position = Vector2(1182, 687)
+position = Vector2(1194, 728)
 amount = 50
 texture = ExtResource("6_ni42t")
 lifetime = 9.0
 process_material = ExtResource("7_hhy1x")
 
 [node name="Feathers_Left" type="GPUParticles2D" parent="."]
-position = Vector2(899, 661)
+position = Vector2(872, 721)
 rotation = 3.1415927
 amount = 50
 texture = ExtResource("6_ni42t")
