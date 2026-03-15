@@ -13,7 +13,6 @@ using MegaCrit.Sts2.Core.Rooms;
 
 namespace ArqPhoenixAncient.Relics;
 
-//Gain 1 regen when you play your first power each turn. 
 [Pool(typeof(EventRelicPool))]
 public class PhoenixHeart : CustomRelicModel
 {
@@ -21,9 +20,11 @@ public class PhoenixHeart : CustomRelicModel
     
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
     {
-        new PowerVar<RegenPower>(3)
+        new PowerVar<RegenPower>(2),
+        // new HpLossVar(20)
     };
 
+    private bool _usedThisTurn;
     private bool UsedThisTurn
     {
         get => _usedThisTurn;
@@ -33,7 +34,14 @@ public class PhoenixHeart : CustomRelicModel
             _usedThisTurn = value;
         }
     }
-    
+
+    //Lose [blue]{HpLoss}%[/blue] of your Max HP.
+    /*public override async Task AfterObtained()
+    {
+        var num = Math.Max(1, Owner.Creature.MaxHp * (DynamicVars.HpLoss.BaseValue / 100));
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, num, false);
+    }*/
+
     public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
     {
         if (side != Owner.Creature.Side)
@@ -49,8 +57,6 @@ public class PhoenixHeart : CustomRelicModel
         UsedThisTurn = false;
         return Task.CompletedTask;
     }
-
-    private bool _usedThisTurn;
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
