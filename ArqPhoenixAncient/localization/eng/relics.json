@@ -35,5 +35,9 @@
 
   "ARQPHOENIXANCIENT-PHOENIX_TORCH.title": "Firestarter",
   "ARQPHOENIXANCIENT-PHOENIX_TORCH.description": "Upon pickup, add [blue]2[/blue] [gold]Devastation[/gold] to your [gold]Deck[/gold].",
-  "ARQPHOENIXANCIENT-PHOENIX_TORCH.flavor": ""
+  "ARQPHOENIXANCIENT-PHOENIX_TORCH.flavor": "",
+
+  "ARQPHOENIXANCIENT-PHOENIX_TEARS.description": "",
+  "ARQPHOENIXANCIENT-PHOENIX_TEARS.flavor": "",
+  "ARQPHOENIXANCIENT-PHOENIX_TEARS.title": "Tears of the Phoenix"
 }

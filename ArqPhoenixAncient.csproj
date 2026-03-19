@@ -8,6 +8,7 @@
         <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
         <PathMap>$(AppOutputBase)=.\</PathMap>
         <RootNamespace>ArqPhoenixAncient</RootNamespace>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <!-- OS Detection -->
@@ -109,34 +110,8 @@
       <Content Include="export_presets.cfg" />
       <Content Include="icon.svg" />
       <Content Include="icon.svg.import" />
-      <Content Include="images\packed\map\ancients\ancient_node_arqphoenixancient-phoenix_ancient.png" />
-      <Content Include="images\packed\map\ancients\ancient_node_arqphoenixancient-phoenix_ancient.png.import" />
-      <Content Include="images\packed\map\ancients\ancient_node_arqphoenixancient-phoenix_ancient_outline.png" />
-      <Content Include="images\packed\map\ancients\ancient_node_arqphoenixancient-phoenix_ancient_outline.png.import" />
-      <Content Include="images\relics\arqphoenixancient-phoenix_heart.png" />
-      <Content Include="images\relics\arqphoenixancient-phoenix_heart.png.import" />
-      <Content Include="images\ui\run_history\arqphoenixancient-phoenix_ancient.png" />
-      <Content Include="images\ui\run_history\arqphoenixancient-phoenix_ancient.png.import" />
-      <Content Include="images\ui\run_history\arqphoenixancient-phoenix_ancient_outline.png" />
-      <Content Include="images\ui\run_history\arqphoenixancient-phoenix_ancient_outline.png.import" />
-      <Content Include="images\vfx\basic_fire_noise.png" />
-      <Content Include="images\vfx\basic_fire_noise.png.import" />
-      <Content Include="images\vfx\feather_particle.png" />
-      <Content Include="images\vfx\feather_particle.png.import" />
-      <Content Include="images\vfx\feather_particle_emission.png" />
-      <Content Include="images\vfx\feather_particle_emission.png.import" />
-      <Content Include="images\vfx\light.png" />
-      <Content Include="images\vfx\light.png.import" />
-      <Content Include="images\vfx\triangle_noise_tile.png" />
-      <Content Include="images\vfx\triangle_noise_tile.png.import" />
-      <Content Include="images\vfx\underdocks_00.png" />
-      <Content Include="images\vfx\underdocks_00.png.import" />
-      <Content Include="scenes\events\background_scenes\arqphoenixancient-phoenix_ancient.tscn" />
-      <Content Include="scenes\events\background_scenes\phoenix_feather.material" />
-      <Content Include="scenes\events\background_scenes\vfx_water_reflection.gdshader" />
-      <Content Include="scenes\events\background_scenes\vfx_water_reflection.gdshader.uid" />
-      <Content Include="scenes\events\background_scenes\wp10956066-mythical-phoenix-wallpapers.jpg" />
-      <Content Include="scenes\events\background_scenes\wp10956066-mythical-phoenix-wallpapers.jpg.import" />
+      <Content Include="images\**" />
+      <Content Include="scenes\**" />
     </ItemGroup>
 
   
