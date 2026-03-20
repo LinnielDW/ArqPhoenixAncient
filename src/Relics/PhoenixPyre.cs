@@ -19,20 +19,24 @@ public class PhoenixPyre : CustomRelicModel
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         new List<DynamicVar>([
-            new HpLossVar(1),
+            new HpLossVar(40),
             new PowerVar<StrengthPower>(4),
             new PowerVar<DexterityPower>(4)
         ]);
+
+    public override async Task AfterObtained()
+    {
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.HpLoss.BaseValue, false);
+    }
 
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
     {
         if (player == Owner)
         {
-            Flash();
-            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.HpLoss.BaseValue, false);
             
             if (combatState.RoundNumber == 1)
             {
+                Flash();
                 await PowerCmd.Apply<StrengthPower>(Owner.Creature, DynamicVars.Strength.BaseValue, Owner.Creature, null);
                 await PowerCmd.Apply<DexterityPower>(Owner.Creature, DynamicVars.Dexterity.BaseValue, Owner.Creature, null);
             }
