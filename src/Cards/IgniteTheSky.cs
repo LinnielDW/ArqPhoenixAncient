@@ -11,7 +11,7 @@ namespace ArqPhoenixAncient.Cards;
 
 // 1 cost. Take 10 unavoidable damage. Deal 48 damage to ALL enemies. Exhaust
 [Pool(typeof(EventCardPool))]
-public class Devastation() : CustomCardModel(
+public class IgniteTheSky() : CustomCardModel(
     1,
     CardType.Attack,
     CardRarity.Ancient,

@@ -19,7 +19,7 @@ public class PhoenixTorch : CustomRelicModel
     {
         get
         {
-            return HoverTipFactory.FromCardWithCardHoverTips<Devastation>();
+            return HoverTipFactory.FromCardWithCardHoverTips<IgniteTheSky>();
         }
     }
 
@@ -28,7 +28,7 @@ public class PhoenixTorch : CustomRelicModel
         List<CardPileAddResult> results = [];
         for (var i = 0; i < 2; i++)
         {
-            CardModel cardModel = Owner.RunState.CreateCard<Devastation>(Owner);
+            CardModel cardModel = Owner.RunState.CreateCard<IgniteTheSky>(Owner);
             var cardPileAddResult = await CardPileCmd.Add(cardModel, PileType.Deck);
             results.Add(cardPileAddResult);
         }

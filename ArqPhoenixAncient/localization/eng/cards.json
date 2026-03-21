@@ -1,5 +1,5 @@
 ﻿{
 
-  "ARQPHOENIXANCIENT-DEVASTATION.title": "Devastation",
-  "ARQPHOENIXANCIENT-DEVASTATION.description": "Lose {HpLoss:diff()} HP.\\nDeal {Damage:diff()} damage to ALL enemies."
+  "ARQPHOENIXANCIENT-IGNITE_THE_SKY.title": "Ignite the Sky",
+  "ARQPHOENIXANCIENT-IGNITE_THE_SKY.description": "Lose {HpLoss:diff()} HP.\\nDeal {Damage:diff()} damage to ALL enemies."
 }
