@@ -9,29 +9,27 @@ using MegaCrit.Sts2.Core.Rooms;
 
 namespace ArqPhoenixAncient.Relics;
 
-//The first time you'd die during combat, resurrect on 1hp and gain 5 regen.
+//The first time you'd die during combat, resurrect on 1hp and gain regen.
 [Pool(typeof(EventRelicPool))]
 public class PhoenixBrazier : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
-    private bool _usedThisCombat;
-
-    public bool UsedThisCombat
+    private bool UsedThisCombat
     {
-        get
-        {
-            return _usedThisCombat;
-        }
+        get;
         set
         {
             AssertMutable();
-            _usedThisCombat = value;
-            Status = _usedThisCombat ? RelicStatus.Disabled : RelicStatus.Normal;
+            field = value;
+            Status = field ? RelicStatus.Disabled : RelicStatus.Normal;
         }
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar> {new HealVar(5)};
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new HealVar(20)
+    ];
 
 
     public override bool ShouldDieLate(Creature creature)
@@ -44,7 +42,7 @@ public class PhoenixBrazier : CustomRelicModel
         Flash();
 
         UsedThisCombat = true;
-        await CreatureCmd.Heal(creature, DynamicVars.Heal.BaseValue, true);
+        await CreatureCmd.Heal(creature, DynamicVars.Heal.BaseValue);
     }
 
     public override Task AfterCombatEnd(CombatRoom _)
