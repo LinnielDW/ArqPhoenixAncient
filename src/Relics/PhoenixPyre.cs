@@ -11,7 +11,6 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 
 namespace ArqPhoenixAncient.Relics;
 
-// At the start of battle gain 3 strength and 3 dexterity, at the start of each turn lose 1 max health. 
 [Pool(typeof(EventRelicPool))]
 public class PhoenixPyre : CustomRelicModel
 {
@@ -29,7 +28,7 @@ public class PhoenixPyre : CustomRelicModel
         await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.HpLoss.BaseValue, false);
     }
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player == Owner)
         {
@@ -37,8 +36,8 @@ public class PhoenixPyre : CustomRelicModel
             if (combatState.RoundNumber == 1)
             {
                 Flash();
-                await PowerCmd.Apply<StrengthPower>(Owner.Creature, DynamicVars.Strength.BaseValue, Owner.Creature, null);
-                await PowerCmd.Apply<DexterityPower>(Owner.Creature, DynamicVars.Dexterity.BaseValue, Owner.Creature, null);
+                await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars.Strength.BaseValue, Owner.Creature, null);
+                await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue, Owner.Creature, null);
             }
         }
     }

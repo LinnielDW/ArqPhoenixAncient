@@ -11,6 +11,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace ArqPhoenixAncient.Relics;
 
+//TODO: rework this to something like: 
+// when you play a card, take 1 damage and apply 1 burnout to all enemies. At the end of your turn enemies take damage equal to their burnout.
 [Pool(typeof(EventRelicPool))]
 public class PhoenixTalon : CustomRelicModel
 {
@@ -28,7 +30,7 @@ public class PhoenixTalon : CustomRelicModel
         {
             Flash();
             await CreatureCmd.Damage(context, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable, Owner.Creature);
-            await PowerCmd.Apply<StrengthPower>(Owner.Creature, DynamicVars.Strength.BaseValue, Owner.Creature, null);
+            await PowerCmd.Apply<StrengthPower>(context,Owner.Creature, DynamicVars.Strength.BaseValue, Owner.Creature, null);
         }
     }
     

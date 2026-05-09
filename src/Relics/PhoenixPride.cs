@@ -16,34 +16,31 @@ namespace ArqPhoenixAncient.Relics;
 public class PhoenixPride : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
-    
-    protected override IEnumerable<DynamicVar> CanonicalVars
-    {
-        get
-        {
-            return new List<DynamicVar>([
-                new EnergyVar(1),
-                new HpLossVar(2)
-            ]);
-        }
-    }
-    
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new EnergyVar(1),
+        new HpLossVar(2)
+    ];
+
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (player != Owner)
         {
             return amount;
         }
+
         return amount + DynamicVars.Energy.IntValue;
     }
-    
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
+        ICombatState combatState)
     {
         if (player == Owner)
         {
             Flash();
-            await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable, Owner.Creature);
+            await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable,
+                Owner.Creature);
         }
     }
-
 }

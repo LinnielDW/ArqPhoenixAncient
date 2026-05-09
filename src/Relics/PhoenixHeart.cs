@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.Rooms;
 
 namespace ArqPhoenixAncient.Relics;
 
+//TODO: perhaps rework this
 [Pool(typeof(EventRelicPool))]
 public class PhoenixHeart : CustomRelicModel
 {
@@ -42,7 +43,7 @@ public class PhoenixHeart : CustomRelicModel
         await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, num, false);
     }*/
 
-    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
+    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
     {
         if (side != Owner.Creature.Side)
         {
@@ -70,14 +71,14 @@ public class PhoenixHeart : CustomRelicModel
                 if (burnCard != null)
                 {
                     await CardPileCmd.AddGeneratedCardToCombat(burnCard, PileType.Draw,
-                        true, CardPilePosition.Random);
+                        Owner, CardPilePosition.Random);
 
                     CardCmd.Preview(burnCard);
-                    await Cmd.Wait(1f);
+                    // await Cmd.Wait(1f);
                 }
 
                 
-                await PowerCmd.Apply<RegenPower>(Owner.Creature, DynamicVars["RegenPower"].BaseValue, Owner.Creature, null);
+                await PowerCmd.Apply<RegenPower>(context,Owner.Creature, DynamicVars["RegenPower"].BaseValue, Owner.Creature, null);
                 
             }
         }

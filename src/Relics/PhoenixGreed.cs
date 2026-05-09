@@ -38,7 +38,7 @@ public class PhoenixGreed : CustomRelicModel
         return amount + DynamicVars.Energy.IntValue;
     }
     
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player == Owner)
         {
@@ -47,7 +47,7 @@ public class PhoenixGreed : CustomRelicModel
                 Flash();
                 var burnCard = combatState.CreateCard<Burn>(Owner);
             
-                var readOnlyList = await CardPileCmd.AddGeneratedCardToCombat(burnCard, PileType.Draw, true, CardPilePosition.Random);
+                var readOnlyList = await CardPileCmd.AddGeneratedCardToCombat(burnCard, PileType.Draw, Owner, CardPilePosition.Random);
                 CardCmd.PreviewCardPileAdd(readOnlyList);
                 await Cmd.Wait(3f);
             }

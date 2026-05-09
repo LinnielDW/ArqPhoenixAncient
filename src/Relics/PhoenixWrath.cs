@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace ArqPhoenixAncient.Relics;
 
-// - The first time you lose health on your turn gain 1 energy. 
+//TODO: rework this. Perhaps something to do with enchants?
 [Pool(typeof(EventRelicPool))]
 public class PhoenixWrath : CustomRelicModel
 {
@@ -28,7 +28,7 @@ public class PhoenixWrath : CustomRelicModel
     
 
     private bool _triggeredThisTurn;
-    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
+    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
     {
         if (side != Owner.Creature.Side)
         {
