@@ -2,10 +2,12 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -53,12 +55,12 @@ public class PhoenixGreed : CustomRelicModel
         }
     }
 
-    public override Task BeforeCardPlayed(CardPlay cardPlay)
+    public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
     {
-        if (cardPlay.Card.Owner == Owner && CardsPlayed == DynamicVars["Cards"].BaseValue - 1)
-            cardPlay.Card.BaseReplayCount++;
+        if (card.Owner == Owner && CardsPlayed == DynamicVars["Cards"].BaseValue - 1)
+            return playCount + 1;
 
-        return Task.CompletedTask;
+        return playCount;
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -71,7 +73,6 @@ public class PhoenixGreed : CustomRelicModel
         if (CardsPlayed >= DynamicVars["Cards"].BaseValue)
         {
             CardsPlayed = 0;
-            cardPlay.Card.BaseReplayCount--;
             await TaskHelper.RunSafely(DoActivateVisuals());
             await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars["Damage"].BaseValue,
                 ValueProp.Unblockable, Owner.Creature);
