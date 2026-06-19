@@ -18,7 +18,7 @@ public class PhoenixTalon : CustomRelicModel
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         new List<DynamicVar>([
-            new HpLossVar(40),
+            new HpLossVar(25),
             new PowerVar<StrengthPower>(4),
             new PowerVar<DexterityPower>(4)
         ]);

@@ -39,7 +39,7 @@ public class PhoenixPride : CustomRelicModel
         if (player == Owner)
         {
             Flash();
-            await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable,
+            await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered,
                 Owner.Creature);
         }
     }

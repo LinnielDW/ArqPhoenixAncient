@@ -22,7 +22,7 @@ public class PhoenixGreed : CustomRelicModel
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(3),
-        new DamageVar(2, ValueProp.Unblockable)
+        new DamageVar(1, ValueProp.Unblockable | ValueProp.Unpowered)
     ];
 
     public override bool ShowCounter => true;
@@ -65,7 +65,7 @@ public class PhoenixGreed : CustomRelicModel
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner)
+        if (cardPlay.Card.Owner != Owner || !cardPlay.IsFirstInSeries)
             return;
 
         CardsPlayed++;
@@ -74,8 +74,8 @@ public class PhoenixGreed : CustomRelicModel
         {
             CardsPlayed = 0;
             await TaskHelper.RunSafely(DoActivateVisuals());
-            await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars["Damage"].BaseValue,
-                ValueProp.Unblockable, Owner.Creature);
+            await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.Damage.BaseValue,
+                ValueProp.Unblockable | ValueProp.Unpowered, Owner.Creature);
         }
     }
 

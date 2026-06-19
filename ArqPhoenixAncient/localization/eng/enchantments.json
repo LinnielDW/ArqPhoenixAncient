@@ -1,0 +1,5 @@
+{
+  "ARQPHOENIXANCIENT-FIERY_WRATH.title": "Fiery Wrath",
+  "ARQPHOENIXANCIENT-FIERY_WRATH.description": "This card gains [gold]Exhaust[/gold]. When played, take [blue]{Damage}[/blue] damage and permanently increase this card's damage by [blue]{DamageScaling}[/blue].",
+  "ARQPHOENIXANCIENT-FIERY_WRATH.extraCardText": "Take [blue]{Damage}[/blue] damage and permanently increase this card's damage by [blue]{DamageScaling}[/blue]."
+}

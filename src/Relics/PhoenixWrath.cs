@@ -1,59 +1,78 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Nodes;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace ArqPhoenixAncient.Relics;
 
-//TODO: rework this. Perhaps something to do with enchants?
 [Pool(typeof(EventRelicPool))]
 public class PhoenixWrath : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
-    
-    protected override IEnumerable<DynamicVar> CanonicalVars
+
+    public override async Task AfterObtained()
     {
-        get
+        foreach (var cardModel in PileType.Deck.GetPile(Owner).Cards.ToList()
+                     .Where(cardModel => ModelDb.Enchantment<FieryWrath>().CanEnchant(cardModel)))
         {
-            return new List<DynamicVar>([new EnergyVar(1)]);
+            CardCmd.Enchant<FieryWrath>(cardModel, 1);
+            NRun.Instance?.GlobalUi.CardPreviewContainer.AddChildSafely(NCardEnchantVfx.Create(cardModel));
         }
     }
-    
+}
 
-    private bool _triggeredThisTurn;
-    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
+public class FieryWrath : CustomEnchantmentModel
+{
+    public override bool CanEnchant(CardModel card)
     {
-        if (side != Owner.Creature.Side)
-        {
-            return Task.CompletedTask;
-        }
-        _triggeredThisTurn = false;
-        return Task.CompletedTask;
+        return base.CanEnchant(card) && card.Type == CardType.Attack;
     }
 
-    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DamageVar(1, ValueProp.Unblockable | ValueProp.Unpowered),
+        new IntVar("DamageScaling", 2)
+    ];
+
+    protected override void OnEnchant()
     {
-        if (Owner.Creature.CombatState != null)
-        {
-            //If player turn
-            if (Owner.Creature.CombatState.CurrentSide == Owner.Creature.Side)
-            {
-                //If player && actually took damage && not already triggered
-                if (target == Owner.Creature && result.UnblockedDamage > 0 && !_triggeredThisTurn)
-                {
-                    _triggeredThisTurn = true;
-                    Flash();
-                    await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
-                }
-            }
-        }
+        Card.AddKeyword(CardKeyword.Exhaust);
     }
 
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card != Card)
+        {
+            return;
+        }
+
+        await CreatureCmd.Damage(choiceContext, cardPlay.Card.Owner.Creature, DynamicVars.Damage.BaseValue,
+            ValueProp.Unblockable | ValueProp.Unpowered, cardPlay.Card.Owner.Creature);
+
+        Amount += DynamicVars["DamageScaling"].IntValue;
+        if (Card.DeckVersion == null) return;
+        var enchantment = Card.DeckVersion.Enchantment;
+        Amount = enchantment.Amount;
+        enchantment.Amount = Amount + DynamicVars["DamageScaling"].IntValue;
+    }
+
+    public override decimal EnchantDamageAdditive(decimal originalDamage, ValueProp props)
+    {
+        if (!props.IsPoweredAttack())
+        {
+            return 0m;
+        }
+
+        return Amount - 1;
+        ;
+    }
 }

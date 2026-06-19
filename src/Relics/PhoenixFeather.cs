@@ -28,7 +28,7 @@ public class PhoenixFeather : CustomRelicModel
         if (cardPlay.Card.Owner == Owner && cardPlay.Card.Type == CardType.Skill)
         {
             Flash();
-            await CreatureCmd.Damage(context, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable, Owner.Creature);
+            await CreatureCmd.Damage(context, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered, Owner.Creature);
         }
     }
 
