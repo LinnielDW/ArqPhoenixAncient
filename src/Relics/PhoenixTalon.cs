@@ -1,38 +1,47 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace ArqPhoenixAncient.Relics;
 
-//TODO: rework this to something like: 
-// when you play a card, take 1 damage and apply 1 burnout to all enemies. At the end of your turn enemies take damage equal to their burnout.
 [Pool(typeof(EventRelicPool))]
 public class PhoenixTalon : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
-    
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         new List<DynamicVar>([
-            new HpLossVar(1),
-            new PowerVar<StrengthPower>(1)
+            new HpLossVar(40),
+            new PowerVar<StrengthPower>(4),
+            new PowerVar<DexterityPower>(4)
         ]);
 
-    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
+    public override async Task AfterObtained()
     {
-        if (cardPlay.Card.Owner == Owner && cardPlay.Card.Type == CardType.Attack)
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.HpLoss.BaseValue,
+            false);
+    }
+
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
+        ICombatState combatState)
+    {
+        if (player == Owner)
         {
-            Flash();
-            await CreatureCmd.Damage(context, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable, Owner.Creature);
-            await PowerCmd.Apply<StrengthPower>(context,Owner.Creature, DynamicVars.Strength.BaseValue, Owner.Creature, null);
+            if (combatState.RoundNumber == 1)
+            {
+                Flash();
+                await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars.Strength.BaseValue,
+                    Owner.Creature, null);
+                await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue,
+                    Owner.Creature, null);
+            }
         }
     }
-    
 }
-

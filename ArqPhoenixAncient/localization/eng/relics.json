@@ -4,7 +4,7 @@
   "ARQPHOENIXANCIENT-PHOENIX_HEART.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_TALON.title": "Talons of the Phoenix",
-  "ARQPHOENIXANCIENT-PHOENIX_TALON.description": "When you play an Attack, lose [red]{HpLoss}[/red] HP and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold].",
+  "ARQPHOENIXANCIENT-PHOENIX_TALON.description": "Upon pickup, lower your Max HP by [blue]{HpLoss}[/blue]. At the start of combat, gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] and [blue]{DexterityPower}[/blue] [gold]Strength[/gold].",
   "ARQPHOENIXANCIENT-PHOENIX_TALON.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_FEATHER.title": "Flight of the Phoenix",
