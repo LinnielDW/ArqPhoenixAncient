@@ -1,13 +1,16 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace ArqPhoenixAncient.Relics;
 
@@ -18,27 +21,46 @@ public class PhoenixPyre : CustomRelicModel
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         new List<DynamicVar>([
-            new HpLossVar(40),
-            new PowerVar<StrengthPower>(4),
-            new PowerVar<DexterityPower>(4)
+            new IntVar("HandFuel", 1),
+            new IntVar("DrawFuel", 3)
         ]);
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Fuel>()];
 
-    public override async Task AfterObtained()
+
+    [SavedProperty]
+    public bool GainFuelInNextCombat
     {
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.HpLoss.BaseValue, false);
+        get;
+        set
+        {
+            AssertMutable();
+            if (field == value)
+            {
+                return;
+            }
+            field = value;
+            Status = field ? RelicStatus.Active : RelicStatus.Normal;
+        }
+    }
+    
+    public override async Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (room is not RestSiteRoom)
+        {
+            return;
+        }
+        GainFuelInNextCombat = true;
     }
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player == Owner)
+        if (player.Creature.CombatState.RoundNumber == 1 && GainFuelInNextCombat) 
         {
-            
-            if (combatState.RoundNumber == 1)
-            {
-                Flash();
-                await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars.Strength.BaseValue, Owner.Creature, null);
-                await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue, Owner.Creature, null);
-            }
+            var fuelCard = Owner.Creature.CombatState?.CreateCard<Fuel>(Owner);
+            await CardPileCmd.AddGeneratedCardToCombat(fuelCard, PileType.Hand, Owner);
+            await CardPileCmd.AddToCombatAndPreview<Debris>(Owner.Creature,
+                PileType.Draw, DynamicVars["DrawFuel"].IntValue, Owner, CardPilePosition.Random);
         }
     }
 }

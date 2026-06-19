@@ -30,7 +30,7 @@
   "ARQPHOENIXANCIENT-PHOENIX_BRAZIER.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_PYRE.title": "Ever-burning Pyre",
-  "ARQPHOENIXANCIENT-PHOENIX_PYRE.description": "Upon pickup, lower your Max HP by [blue]{HpLoss}[/blue]. At the start of combat, gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] and [blue]{DexterityPower}[/blue] [gold]Strength[/gold].",
+  "ARQPHOENIXANCIENT-PHOENIX_PYRE.description": "Whenever you enter a [gold]Rest Site[/gold], start the next combat with a [gold]Fuel[/gold] in your hand and {DrawFuel} in your draw pile.",
   "ARQPHOENIXANCIENT-PHOENIX_PYRE.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_TORCH.title": "Firestarter",
