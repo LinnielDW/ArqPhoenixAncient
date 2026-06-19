@@ -3,6 +3,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -13,26 +14,24 @@ using MegaCrit.Sts2.Core.Rooms;
 
 namespace ArqPhoenixAncient.Relics;
 
-//TODO: perhaps rework this
 [Pool(typeof(EventRelicPool))]
 public class PhoenixHeart : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
-    
+
     protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar>
     {
         new PowerVar<RegenPower>(2),
         // new HpLossVar(20)
     };
 
-    private bool _usedThisTurn;
     private bool UsedThisTurn
     {
-        get => _usedThisTurn;
+        get;
         set
         {
             AssertMutable();
-            _usedThisTurn = value;
+            field = value;
         }
     }
 
@@ -43,12 +42,17 @@ public class PhoenixHeart : CustomRelicModel
         await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, num, false);
     }*/
 
-    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
+    public override Task BeforeSideTurnStart(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
         if (side != Owner.Creature.Side)
         {
             return Task.CompletedTask;
         }
+
         UsedThisTurn = false;
         return Task.CompletedTask;
     }
@@ -61,12 +65,12 @@ public class PhoenixHeart : CustomRelicModel
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner == Owner && CombatManager.Instance.IsInProgress && UsedThisTurn)
+        if (cardPlay.Card.Owner == Owner && CombatManager.Instance.IsInProgress && !UsedThisTurn)
         {
             if (cardPlay.Card.Type == CardType.Power)
             {
                 Flash();
-                
+
                 var burnCard = Owner.Creature.CombatState?.CreateCard<Burn>(Owner);
                 if (burnCard != null)
                 {
@@ -74,12 +78,10 @@ public class PhoenixHeart : CustomRelicModel
                         Owner, CardPilePosition.Random);
 
                     CardCmd.Preview(burnCard);
-                    // await Cmd.Wait(1f);
                 }
 
-                
-                await PowerCmd.Apply<RegenPower>(context,Owner.Creature, DynamicVars["RegenPower"].BaseValue, Owner.Creature, null);
-                
+                await PowerCmd.Apply<RegenPower>(context, Owner.Creature, DynamicVars["RegenPower"].BaseValue,
+                    Owner.Creature, null);
             }
         }
     }
