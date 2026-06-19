@@ -21,7 +21,7 @@
   "ARQPHOENIXANCIENT-PHOENIX_PRIDE.flavor": "",
   
   "ARQPHOENIXANCIENT-PHOENIX_GREED.title": "Phoenix's Greed",
-  "ARQPHOENIXANCIENT-PHOENIX_GREED.description": "Gain {Energy:energyIcons()} at the start of each turn. At the start of your turn, shuffle a [gold]Burn[/gold] into your [gold]Draw Pile[/gold].",
+  "ARQPHOENIXANCIENT-PHOENIX_GREED.description": "Every third card you play, lose {Damage} health and play that card an extra time.",
   "ARQPHOENIXANCIENT-PHOENIX_GREED.flavor": "",
 
   

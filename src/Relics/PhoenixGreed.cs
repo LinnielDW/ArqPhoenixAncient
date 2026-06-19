@@ -1,56 +1,88 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Saves.Runs;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace ArqPhoenixAncient.Relics;
 
-// Gain 1 extra energy per turn. At the start of your turn, shuffle a burn into your draw pile.
 [Pool(typeof(EventRelicPool))]
 public class PhoenixGreed : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new CardsVar(3),
+        new DamageVar(2, ValueProp.Unblockable)
+    ];
+
+    public override bool ShowCounter => true;
+
+    public override int DisplayAmount => !IsActivating ? CardsPlayed : DynamicVars["Cards"].IntValue;
+
+    private bool IsActivating
     {
-        get
+        get;
+        set
         {
-            return new List<DynamicVar>([
-                new EnergyVar(1),
-                // new IntVar("Turn", 1)
-            ]);
+            AssertMutable();
+            field = value;
+            InvokeDisplayAmountChanged();
         }
     }
-    
-    public override decimal ModifyMaxEnergy(Player player, decimal amount)
+
+    [SavedProperty(SerializationCondition.SaveIfNotTypeDefault)]
+    public int CardsPlayed
     {
-        if (player != Owner)
+        get;
+        set
         {
-            return amount;
+            AssertMutable();
+            field = value;
+            Status = field == DynamicVars["Cards"].BaseValue - 1
+                ? RelicStatus.Active
+                : RelicStatus.Normal;
+            InvokeDisplayAmountChanged();
         }
-        return amount + DynamicVars.Energy.IntValue;
     }
-    
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
+
+    public override Task BeforeCardPlayed(CardPlay cardPlay)
     {
-        if (player == Owner)
+        if (cardPlay.Card.Owner == Owner && CardsPlayed == DynamicVars["Cards"].BaseValue - 1)
+            cardPlay.Card.BaseReplayCount++;
+
+        return Task.CompletedTask;
+    }
+
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner != Owner)
+            return;
+
+        CardsPlayed++;
+
+        if (CardsPlayed >= DynamicVars["Cards"].BaseValue)
         {
-            // if (combatState.RoundNumber % 2 == 1)
-            {
-                Flash();
-                var burnCard = combatState.CreateCard<Burn>(Owner);
-            
-                var readOnlyList = await CardPileCmd.AddGeneratedCardToCombat(burnCard, PileType.Draw, Owner, CardPilePosition.Random);
-                CardCmd.PreviewCardPileAdd(readOnlyList);
-                await Cmd.Wait(3f);
-            }
+            CardsPlayed = 0;
+            cardPlay.Card.BaseReplayCount--;
+            await TaskHelper.RunSafely(DoActivateVisuals());
+            await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars["Damage"].BaseValue,
+                ValueProp.Unblockable, Owner.Creature);
         }
+    }
+
+    private async Task DoActivateVisuals()
+    {
+        IsActivating = true;
+        Flash();
+        await Cmd.Wait(1f);
+        IsActivating = false;
     }
 }
