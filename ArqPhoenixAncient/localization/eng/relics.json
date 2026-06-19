@@ -38,6 +38,6 @@
   "ARQPHOENIXANCIENT-PHOENIX_TORCH.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_TEARS.title": "Tears of the Phoenix",
-  "ARQPHOENIXANCIENT-PHOENIX_TEARS.description": "",
+  "ARQPHOENIXANCIENT-PHOENIX_TEARS.description": "Gain {MaxHp} Max HP. You cannot gain Block.",
   "ARQPHOENIXANCIENT-PHOENIX_TEARS.flavor": ""
 }

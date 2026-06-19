@@ -33,8 +33,8 @@ public class PhoenixAncient : CustomAncientModel
         MakePool(
             AncientOption<PhoenixBrazier>(),
             AncientOption<PhoenixPyre>(),
-            AncientOption<PhoenixTorch>()
-            // AncientOption<PhoenixTears>()
+            AncientOption<PhoenixTorch>(),
+            AncientOption<PhoenixTears>()
         )
     );
 
