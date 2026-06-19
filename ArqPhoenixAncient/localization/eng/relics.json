@@ -26,7 +26,7 @@
 
   
   "ARQPHOENIXANCIENT-PHOENIX_BRAZIER.title": "Brazier of Rebirth",
-  "ARQPHOENIXANCIENT-PHOENIX_BRAZIER.description": "The first time you would die in combat, heal to [green]{Heal}[/green] HP instead.",
+  "ARQPHOENIXANCIENT-PHOENIX_BRAZIER.description": "Every [blue]{ExhaustAmount}[/blue] times you [gold]Exhaust[/gold] a card, return a random card from your exhaust pile to your draw pile.",
   "ARQPHOENIXANCIENT-PHOENIX_BRAZIER.flavor": "",
 
   "ARQPHOENIXANCIENT-PHOENIX_PYRE.title": "Ever-burning Pyre",
