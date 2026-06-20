@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://chdw7b358dmw4"]
 
-[ext_resource type="Texture2D" uid="uid://dw0x57f5petq3" path="res://scenes/events/background_scenes/wp10956066-mythical-phoenix-wallpapers.jpg" id="1_tffc0"]
 [ext_resource type="Shader" uid="uid://b840qyq60df7i" path="res://scenes/events/background_scenes/vfx_water_reflection.gdshader" id="1_wvntw"]
 [ext_resource type="Texture2D" uid="uid://ca2p1xxil2cwb" path="res://images/vfx/underdocks_00.png" id="2_5au56"]
 [ext_resource type="Texture2D" uid="uid://c7kf2pg6q0mdt" path="res://images/vfx/triangle_noise_tile.png" id="3_ie72w"]
+[ext_resource type="Texture2D" uid="uid://de5bga25scgm2" path="res://scenes/events/background_scenes/056.jpg" id="4_n6jer"]
 [ext_resource type="Texture2D" uid="uid://mwg7dmnpp8h4" path="res://scenes/events/background_scenes/trial_stand_light.png" id="5_2bn5p"]
 [ext_resource type="Material" uid="uid://dfqjh0mnas3th" path="res://scenes/events/background_scenes/vfx_godray.material" id="6_n6jer"]
 [ext_resource type="Texture2D" uid="uid://c5ppv3u5rne7m" path="res://images/vfx/feather_particle_emission.png" id="6_ni42t"]
@@ -42,22 +42,24 @@ offset_bottom = 432.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
+metadata/_edit_vertical_guides_ = [1922.0]
+metadata/_edit_horizontal_guides_ = [1081.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_2bn5p")
 layout_mode = 0
-offset_left = -157.0
-offset_top = -31.0
-offset_right = 2079.0
-offset_bottom = 1269.0
-texture = ExtResource("1_tffc0")
+offset_left = -258.0
+offset_top = -61.0
+offset_right = 2140.6248
+offset_bottom = 1705.0
+texture = ExtResource("4_n6jer")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="GodRay" type="GPUParticles2D" parent="."]
 modulate = Color(1, 0.7058824, 0.3019608, 0.60784316)
 material = SubResource("CanvasItemMaterial_n6jer")
-position = Vector2(1020, 459)
+position = Vector2(997, 232)
 amount = 2
 texture = ExtResource("5_2bn5p")
 lifetime = 10.0
@@ -66,15 +68,16 @@ local_coords = true
 process_material = ExtResource("6_n6jer")
 
 [node name="Feathers_Right" type="GPUParticles2D" parent="."]
-position = Vector2(1194, 728)
+position = Vector2(1383, 514)
+rotation = 0.143117
 amount = 50
 texture = ExtResource("6_ni42t")
 lifetime = 9.0
 process_material = ExtResource("7_hhy1x")
 
 [node name="Feathers_Left" type="GPUParticles2D" parent="."]
-position = Vector2(872, 721)
-rotation = 3.1415927
+position = Vector2(1000, 750)
+rotation = 2.6424284
 amount = 50
 texture = ExtResource("6_ni42t")
 lifetime = 9.0
@@ -82,7 +85,7 @@ process_material = ExtResource("7_hhy1x")
 
 [node name="Eye" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_slj8l")
-position = Vector2(966, 137)
+position = Vector2(742, 169)
 amount = 2
 texture = ExtResource("7_bv6qu")
 lifetime = 3.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw0x57f5petq3"
-path="res://.godot/imported/wp10956066-mythical-phoenix-wallpapers.jpg-e6584ee28f5b2b220d7ee9f65ceb143e.ctex"
+uid="uid://de5bga25scgm2"
+path="res://.godot/imported/056.jpg-9c6b6eef0605cbbb6b84fe4662bc4c9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/events/background_scenes/wp10956066-mythical-phoenix-wallpapers.jpg"
-dest_files=["res://.godot/imported/wp10956066-mythical-phoenix-wallpapers.jpg-e6584ee28f5b2b220d7ee9f65ceb143e.ctex"]
+source_file="res://scenes/events/background_scenes/056.jpg"
+dest_files=["res://.godot/imported/056.jpg-9c6b6eef0605cbbb6b84fe4662bc4c9f.ctex"]
 
 [params]
 
