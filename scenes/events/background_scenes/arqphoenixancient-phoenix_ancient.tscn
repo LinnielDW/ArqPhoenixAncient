@@ -48,9 +48,9 @@ metadata/_edit_horizontal_guides_ = [1081.0]
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_2bn5p")
 layout_mode = 0
-offset_left = -258.0
+offset_left = -340.0
 offset_top = -61.0
-offset_right = 2140.6248
+offset_right = 2058.6248
 offset_bottom = 1705.0
 texture = ExtResource("4_n6jer")
 expand_mode = 2
@@ -59,7 +59,7 @@ stretch_mode = 4
 [node name="GodRay" type="GPUParticles2D" parent="."]
 modulate = Color(1, 0.7058824, 0.3019608, 0.60784316)
 material = SubResource("CanvasItemMaterial_n6jer")
-position = Vector2(997, 232)
+position = Vector2(915, 232)
 amount = 2
 texture = ExtResource("5_2bn5p")
 lifetime = 10.0
@@ -68,7 +68,7 @@ local_coords = true
 process_material = ExtResource("6_n6jer")
 
 [node name="Feathers_Right" type="GPUParticles2D" parent="."]
-position = Vector2(1383, 514)
+position = Vector2(1301, 514)
 rotation = 0.143117
 amount = 50
 texture = ExtResource("6_ni42t")
@@ -76,7 +76,7 @@ lifetime = 9.0
 process_material = ExtResource("7_hhy1x")
 
 [node name="Feathers_Left" type="GPUParticles2D" parent="."]
-position = Vector2(1000, 750)
+position = Vector2(918, 750)
 rotation = 2.6424284
 amount = 50
 texture = ExtResource("6_ni42t")
@@ -85,7 +85,7 @@ process_material = ExtResource("7_hhy1x")
 
 [node name="Eye" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_slj8l")
-position = Vector2(742, 169)
+position = Vector2(660, 169)
 amount = 2
 texture = ExtResource("7_bv6qu")
 lifetime = 3.0
