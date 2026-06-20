@@ -82,6 +82,7 @@ public class PhoenixHeart : CustomRelicModel
 
                 await PowerCmd.Apply<RegenPower>(context, Owner.Creature, DynamicVars["RegenPower"].BaseValue,
                     Owner.Creature, null);
+                UsedThisTurn = true;
             }
         }
     }
