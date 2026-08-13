@@ -107,8 +107,8 @@
         <None Include="project.godot"/>
         <None Include="ArqPhoenixAncient/**"/>
     </ItemGroup>
-
-    <ItemGroup>
+    
+    <ItemGroup Condition="Exists('$(Sts2DataDir)')">
         <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -116,15 +116,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="export_presets.cfg" />
-      <Content Include="icon.svg" />
-      <Content Include="icon.svg.import" />
-      <Content Include="images\**" />
-      <Content Include="scenes\**" />
+        <Content Include="export_presets.cfg"/>
+        <Content Include="icon.svg"/>
+        <Content Include="icon.svg.import"/>
+        <Content Include="images\**"/>
+        <Content Include="scenes\**"/>
     </ItemGroup>
 
-  
-    
 
     <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
         <Message Text="Copying .dll and manifest to mods folder." Importance="high"/>
