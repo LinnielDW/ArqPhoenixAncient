@@ -79,18 +79,10 @@ jobs:
         run: |
           "$GODOT_PATH" --headless --audio-driver Dummy --import || true
           "$GODOT_PATH" --headless --audio-driver Dummy --import
-      - name: Determine configuration
-        id: config
-        run: |
-          if [ "$GITHUB_REF_NAME" = "production" ]; then
-            echo "configuration=Production" >> "$GITHUB_OUTPUT"
-          else
-            echo "configuration=Release" >> "$GITHUB_OUTPUT"
-          fi
       - name: Publish
         run: |
           mkdir -p "${{ github.workspace }}/output/mods"
-          dotnet publish ArqPhoenixAncient.csproj -c "${{ steps.config.outputs.configuration }}" \
+          dotnet publish ArqPhoenixAncient.csproj -c ExportRelease \
           /p:GodotPath="$GODOT_PATH" \
           /p:ModsPath="${{ github.workspace }}/output/mods/" \
           /p:Version="${{ steps.version.outputs.version }}" \
