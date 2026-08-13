@@ -21,25 +21,21 @@ public class IgniteTheSky() : CustomCardModel(
     [
         CardKeyword.Exhaust
     ];
-    
-    protected override IEnumerable<DynamicVar> CanonicalVars
-    {
-        get
-        {
-            return new List<DynamicVar>(new DynamicVar[]
-            {
-                new DamageVar(48, ValueProp.Move),
-                new HpLossVar(8)
-            });
-        }
-    }
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DamageVar(48, ValueProp.Move),
+        new HpLossVar(8)
+    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         VfxCmd.PlayOnCreatureCenter(Owner.Creature, "vfx/vfx_bloody_impact");
-        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this);
-        
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this)
+        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue,
+            ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this, cardPlay);
+
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .FromCardCompatibility(this, cardPlay)
             .TargetingAllOpponents(CombatState)
             .Execute(choiceContext);
     }
